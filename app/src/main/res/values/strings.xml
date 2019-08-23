@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">KotlinLesson03</string>
+
+    <string name="switch_fragment_button">画面切り替え</string>
+    <string name="blue_fragment_title">Blue</string>
+    <string name="green_fragment_title">Green</string>
+    <string name="red_fragment_title">Red</string>
+
+</resources>
