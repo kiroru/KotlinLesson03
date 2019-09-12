@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity(), NaviFragment.Listener {
         ft.add(R.id.navi, NaviFragment.newInstance())
         ft.commit()
 
-        incrementIndex()
     }
 
     private fun incrementIndex() {
@@ -36,10 +35,10 @@ class MainActivity : AppCompatActivity(), NaviFragment.Listener {
 
     // region NaviFragment.Listener
     override fun notifyButtonPress() {
+        incrementIndex()
         val ft = fm.beginTransaction()
         ft.replace(R.id.content, fragments[index])
         ft.commit()
-        incrementIndex()
     }
     // endregion
 
