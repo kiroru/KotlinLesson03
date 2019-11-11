@@ -14,9 +14,9 @@ class MainActivity : AppCompatActivity(), NaviFragment.Listener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        fragments.add(BlueFragment.newInstance())
-        fragments.add(GreenFragment.newInstance())
         fragments.add(RedFragment.newInstance())
+        fragments.add(GreenFragment.newInstance())
+        fragments.add(BlueFragment.newInstance())
 
         val ft = fm.beginTransaction()
         ft.add(R.id.content, fragments[index])
