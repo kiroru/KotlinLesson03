@@ -3,16 +3,20 @@ package jp.kiroru.kotlinlesson03
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import android.os.Bundle
+import jp.kiroru.kotlinlesson03.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), NaviFragment.Listener {
 
     private val fm = supportFragmentManager
     private val fragments = mutableListOf<Fragment>()
     private var index = 0
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
         fragments.add(RedFragment.newInstance())
         fragments.add(GreenFragment.newInstance())
