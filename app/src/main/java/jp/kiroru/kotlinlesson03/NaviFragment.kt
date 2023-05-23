@@ -33,7 +33,7 @@ class NaviFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentNaviBinding.inflate(inflater, container, false)
         val view = binding.root
         binding.switchFragmentButton.setOnClickListener {
@@ -53,7 +53,7 @@ class NaviFragment : Fragment() {
         if (context is Listener) {
             listener = context
         } else {
-            throw RuntimeException(context.toString() + " must implement NaviFragment.Listener")
+            throw RuntimeException("$context must implement NaviFragment.Listener")
         }
     }
 

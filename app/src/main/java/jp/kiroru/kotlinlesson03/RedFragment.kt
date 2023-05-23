@@ -34,7 +34,7 @@ class RedFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentRedBinding.inflate(inflater, container, false)
         return binding.root
     }

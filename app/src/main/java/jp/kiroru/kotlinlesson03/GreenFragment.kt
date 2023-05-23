@@ -34,7 +34,7 @@ class GreenFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentGreenBinding.inflate(inflater, container, false)
         return binding.root
     }
