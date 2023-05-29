@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import jp.kiroru.kotlinlesson03.databinding.FragmentNaviBinding
 
 
 class NaviFragment : Fragment() {
@@ -23,6 +23,9 @@ class NaviFragment : Fragment() {
 
     private var listener: Listener? = null
 
+    private var _binding: FragmentNaviBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -30,14 +33,19 @@ class NaviFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_navi, container, false)
-        val switchFragmentButton = view.findViewById<Button>(R.id.switchFragmentButton)
-        switchFragmentButton.setOnClickListener {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        _binding = FragmentNaviBinding.inflate(inflater, container, false)
+        val view = binding.root
+        binding.switchFragmentButton.setOnClickListener {
             listener?.notifyButtonPress()
         }
 
         return view
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun onAttach(context: Context) {
@@ -45,7 +53,7 @@ class NaviFragment : Fragment() {
         if (context is Listener) {
             listener = context
         } else {
-            throw RuntimeException(context.toString() + " must implement NaviFragment.Listener")
+            throw RuntimeException("$context must implement NaviFragment.Listener")
         }
     }
 
